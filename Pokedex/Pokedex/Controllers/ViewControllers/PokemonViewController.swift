@@ -62,8 +62,8 @@ extension PokemonViewController: UISearchBarDelegate {
             NetworkController().fetchSpriteImage(pokemon: pokemon) { image in
                 guard let image = image else { return }
                 self.updateUI(with: image)
-            }
-        }
-    }
-}
+            } //End of spriteImage
+        } //End of fetchPokemon
+    } //End of func searchBar
+} //End of extension
  
