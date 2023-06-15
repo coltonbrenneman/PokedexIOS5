@@ -5,7 +5,7 @@
 //  Created by Colton Brenneman on 6/15/23.
 //
 
-import Foundation
+import UIKit
 
 class NetworkController {
     
@@ -31,9 +31,20 @@ class NetworkController {
         }.resume() //End of dataTask
     } //End of fetchPokemon
     
-    func fetchSpriteImage() {
+    func fetchSpriteImage(pokemon: Pokemon, completion: @escaping(UIImage?) -> Void) {
+        guard let imageURL = URL(string: pokemon.spritePath) else { completion(nil) ; return }
         
-        
+        URLSession.shared.dataTask(with: imageURL) { data, _, error in
+            if let error {
+                print("Ah shit there's an error", error.localizedDescription)
+                completion(nil)
+            } //End of error
+            
+            guard let data = data else { completion(nil) ; return }
+            
+            let spriteImage = UIImage(data: data)
+            completion(spriteImage)
+        }.resume() //End of dataTask
     } //End of fetchSpriteImage
 } //End of class
 

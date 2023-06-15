@@ -19,7 +19,6 @@ class PokemonViewController: UIViewController {
     // MARK: - Properties
     var pokemon: Pokemon?
     
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +28,16 @@ class PokemonViewController: UIViewController {
     }
     
     // MARK: - Fucntions
-    func updateUI() {
+    func updateUI(with image: UIImage) {
         guard let pokemon = pokemon else { return }
         DispatchQueue.main.async {
             self.pokemonMovesTableView.reloadData()
             self.pokemonIDLabel.text = "ID: \(pokemon.id)"
             self.pokemonNameLabel.text = pokemon.name
+            self.pokemonSpriteImageView.image = image
         }
     }
-}// End of class
+} // End of class
 
 // MARK: - Extensions
 extension PokemonViewController: UITableViewDataSource {
@@ -50,7 +50,6 @@ extension PokemonViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "moveCell", for: indexPath)
         cell.textLabel?.text = pokemon?.moves[indexPath.row]
         
-        
         return cell
     }
 }
@@ -58,8 +57,12 @@ extension PokemonViewController: UITableViewDataSource {
 extension PokemonViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NetworkController().fetchPokemon(with: searchText) { pokemon in
+            guard let pokemon = pokemon else { return }
             self.pokemon = pokemon
-            self.updateUI()
+            NetworkController().fetchSpriteImage(pokemon: pokemon) { image in
+                guard let image = image else { return }
+                self.updateUI(with: image)
+            }
         }
     }
 }
