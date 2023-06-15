@@ -14,6 +14,7 @@
 		413CA10A27AB4CC8006D7F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413CA10827AB4CC8006D7F15 /* LaunchScreen.storyboard */; };
 		413CA11627AC41A8006D7F15 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413CA11527AC41A8006D7F15 /* PokemonViewController.swift */; };
 		4412E4842A3B62A20002E3BD /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412E4832A3B62A20002E3BD /* Pokemon.swift */; };
+		4412E4882A3B78000002E3BD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412E4872A3B78000002E3BD /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		413CA10B27AB4CC8006D7F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		413CA11527AC41A8006D7F15 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		4412E4832A3B62A20002E3BD /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		4412E4872A3B78000002E3BD /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		413CA11727AC50A4006D7F15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4412E4862A3B77F60002E3BD /* ModelControllers */,
 				413CA11927AC50B9006D7F15 /* ViewControllers */,
 			);
 			path = Controllers;
@@ -108,6 +111,14 @@
 				413CA10827AB4CC8006D7F15 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4412E4862A3B77F60002E3BD /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4412E4872A3B78000002E3BD /* NetworkController.swift */,
+			);
+			path = ModelControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4412E4882A3B78000002E3BD /* NetworkController.swift in Sources */,
 				413CA0FE27AB4CC7006D7F15 /* AppDelegate.swift in Sources */,
 				4412E4842A3B62A20002E3BD /* Pokemon.swift in Sources */,
 				413CA11627AC41A8006D7F15 /* PokemonViewController.swift in Sources */,
